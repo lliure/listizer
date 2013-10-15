@@ -1,17 +1,17 @@
 <?php
 /**
 *
-* Listizer - lliure 4.7
+* Listizer - lliure 5.x
 *
-* @Versão 2.0.0
-* @Desenvolvedor Jeison Frasson <contato@grapestudio.com.br>
-* @Entre em contato com o desenvolvedor <contato@grapestudio.com.br> http://www.grapestudio.com.br/
+* @Versão 3
+* @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
+* @Entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
 * @Licença http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
 
-$llHome = "?plugin=listizer";
-$llPasta = "plugins/listizer/";
+$llHome = $_ll['app']['home'];
+$llPasta = $_ll['app']['pasta'];
 $llTable = PREFIXO."listizer";
 
 $botoes = array(

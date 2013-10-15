@@ -1,11 +1,11 @@
 <?php
 /**
 *
-* Listizer - lliure 4.7
+* Listizer - lliure 5.x
 *
-* @Versão 2.0.0
-* @Desenvolvedor Jeison Frasson <contato@grapestudio.com.br>
-* @Entre em contato com o desenvolvedor <contato@grapestudio.com.br> http://www.grapestudio.com.br/
+* @Versão 3
+* @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
+* @Entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
 * @Licença http://opensource.org/licenses/gpl-license.php GNU Public License
 *
 */
@@ -60,8 +60,8 @@ $sql2 = mysql_query('select categoria from '.$llTable.' where categoria is not n
 		<tr>
 			<td><?php echo $dados['email']; ?></td>
 			<td><?php echo $dados['nome']; ?></td>
-			<td><a href="<?php echo $llPasta.'acoes.php?ac=activate&amp;id='.$dados['id']?>" class="activate"><img src="imagens/icones/preto/<?php echo $activate[$dados['status']]?>"></a></td>
-			<td><a href="<?php echo $llPasta.'acoes.php?ac=del&amp;id='.$dados['id']?>" class="del"><img src="imagens/icones/preto/trash.png"></a></td>
+			<td><a href="<?php echo $llPasta.'acoes.php?ac=activate&amp;id='.$dados['id']?>" class="activate"><img src="imagens/icones/<?php echo $activate[$dados['status']]?>"></a></td>
+			<td><a href="<?php echo $llPasta.'acoes.php?ac=del&amp;id='.$dados['id']?>" class="del"><img src="imagens/icones/trash.png"></a></td>
 		</tr>
 		<?php
 	}
@@ -84,13 +84,13 @@ $sql2 = mysql_query('select categoria from '.$llTable.' where categoria is not n
 	$('.activate').click(function(){
 		var tr = $(this).closest('tr');
 		
-		if($(this).find('img').attr('src') == 'imagens/icones/preto/checkbox_checked.png')
+		if($(this).find('img').attr('src') == 'imagens/icones/checkbox_checked.png')
 			var url = 'checkbox_unchecked';
 		else
 			var url = 'checkbox_checked';
 
 		plg_load($(this).attr('href')+'&mod='+url, function(){
-			$(tr).find('.activate img').attr('src', 'imagens/icones/preto/'+url+'.png');
+			$(tr).find('.activate img').attr('src', 'imagens/icones/'+url+'.png');
 		});
 
 		return false;
