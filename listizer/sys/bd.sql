@@ -29,7 +29,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `ll_listizer` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(50) DEFAULT NULL,
-  `sub_categoria` varchar(50) NOT NULL,
   `nome` varchar(200) DEFAULT NULL,
   `email` varchar(200) DEFAULT NULL,
   `status` enum('0','1') DEFAULT '1',

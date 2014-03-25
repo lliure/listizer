@@ -1,4 +1,15 @@
 <?php
+/**
+*
+* Listizer - lliure 5.x
+*
+* @Versão 3.1
+* @Desenvolvedor Jeison Frasson <jomadee@lliure.com.br>
+* @Entre em contato com o desenvolvedor <jomadee@lliure.com.br> http://www.lliure.com.br/
+* @Licença http://opensource.org/licenses/gpl-license.php GNU Public License
+*
+*/
+
 header("Content-Type: text/html; charset=ISO-8859-1", true);
 
 require_once("../../../etc/bdconf.php");
@@ -11,16 +22,16 @@ switch(isset($_GET['ac']) ? $_GET['ac'] : ''){
 		if($_POST['cad'] == 'adicionar'){
 			
 			if(isset($dados['id']) && $dados['status'] == 0){
-				if(jf_update(PREFIXO.'listizer', array('status' => '1'), array('id' => $dados['id']))){
-					$retorno = 'cad_ok';
-				} else {
+				if($erro = jf_update(PREFIXO.'listizer', array('status' => '1'), array('id' => $dados['id']))){
 					$retorno = 'cad_erro';
+				} else {
+					$retorno = 'cad_ok';
 				}				
 			} elseif(!isset($dados['id'])){
-				if(jf_insert(PREFIXO.'listizer', array('email' => $_POST['email'], 'nome' => $_POST['nome'], 'categoria' => $_POST['categoria']))){
-					$retorno = 'cad_ok';
-				} else {
+				if($erro = jf_insert(PREFIXO.'listizer', array('email' => $_POST['email'], 'nome' => $_POST['nome'], 'categoria' => $_POST['categoria']))){
 					$retorno = 'cad_erro';
+				} else {					
+					$retorno = 'cad_ok';
 				}				
 			} else {
 				$retorno = 'cadastrado';
@@ -28,10 +39,10 @@ switch(isset($_GET['ac']) ? $_GET['ac'] : ''){
 			
 		} else {			
 			if(isset($dados['id'])){
-				if(jf_update(PREFIXO.'listizer', array('status' => '0'), array('id' => $dados['id']))) {
-					$retorno = 'rev_ok';
-				} else {
+				if($erro = jf_update(PREFIXO.'listizer', array('status' => '0'), array('id' => $dados['id']))) {
 					$retorno = 'rev_erro';
+				} else {
+					$retorno = 'rev_ok';
 				}
 			} else { 
 				$retorno = 'semcad';
